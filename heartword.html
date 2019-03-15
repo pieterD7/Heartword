@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700'
+          rel='stylesheet'
+          type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        .dialogue{
+            display:block;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class='dialogue'>
+    <div>
+        <div class=''>
+            <span class='msg'>Choose your heartword : </span>
+        </div>
+        <br/>
+
+        <input name='password' autocapitalize="none" type='hidden' autocomplete="new-password">
+
+        <div id='specialPassword' class='displayBlock'>
+            <div contenteditable="true"
+                 autocomplete="off"
+                 autocapitalize="none"
+                 z-index="0"
+                 id='password'>
+            </div>
+            <div id='passwordEye'>
+                &#128065;&nbsp;
+            </div>
+            <div id='capsLockOn'>
+                <span class='hidden'>Capslock is on</span>
+            </div>
+            <div id='numLockOn'>
+                <span class='hidden'>Numlock is on</span>
+            </div>
+        </div>
+
+        <span class='button ok right'>OK</span>
+
+    </div>
+</div>
+
+<script type='text/javascript' src="heartword.js"></script>
+
+</body>
+</html>

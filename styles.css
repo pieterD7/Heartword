@@ -1,0 +1,48 @@
+.hidden{
+    visibility:hidden;
+}
+.visible{
+    visibility: visible;
+}
+.right{
+    float:right;
+}
+.button{
+    cursor:pointer;
+    background:white;
+    border-bottom:1px solid #b3b3b3;
+    border-right:1px solid #b3b3b3;
+    color:#00b5ff;
+    padding:0.25em 1em 0.25em 1em;
+    border-radius:4px;
+    font-weight:bold;
+    display:inline-block;
+}
+.dialogue > div{
+    width:20em;
+    margin: 3em auto;
+}
+.dialogue input[name=password]{
+    width:20em;
+}
+#password{
+    box-sizing: content-box;
+    height:1.5em;
+    line-height:1.5em;
+    padding:0.5em;
+    color: red;
+    border:1px solid red;
+}
+#passwordEye{
+    cursor:pointer;
+    line-height:0.5em;
+    font-size: 100%;
+    width:2em;
+    float:right;
+    position:relative;
+    top:-1.5em;
+    color: rgba(10%, 10%, 10%, 0.5);
+    text-align: right;
+    font-weight:10;
+    /*text-shadow:0 0 0 red;*/
+}
