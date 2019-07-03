@@ -70,7 +70,57 @@ function adjustPasswordHints(event){
     else if(q)
         q.className = 'hidden'
 
+    q = document.querySelector("#minPasslength span")
+    if (q && passLength < 2) {
+        q.className = 'visible'
+    }
+    else if (q)
+        q.className = 'hidden'
+
 }
+
+function adjustPassword2() {
+
+    var text = el.innerText,
+        heartsNo = text.length;
+
+    text = text.replace(new RegExp(heartCharRegexp, "g"), "")
+
+    if (showHearts) {
+        if (heartsNo > password.length) {
+            password += text
+        }
+        else
+            password = password.slice(0, heartsNo)
+    }
+    else {
+        password = text
+    }
+
+    passLength = password.length
+
+    var text2 = '';
+
+    for (var c = 0; c < password.length; c++) {
+        text2 += heartChar
+    }
+
+    if (showHearts)
+        el.innerHTML = text2
+    else
+        el.innerHTML = password
+
+    if (passLength < 1) return
+
+    // Adjust cursor
+    var range = document.createRange();
+    var sel = window.getSelection();
+    range.setStart(el, 1);
+    range.collapse(true);
+    sel.removeAllRanges();
+    sel.addRange(range);
+}
+
 
 elEye.addEventListener('click', (event) =>{
     showHearts = ! showHearts
@@ -154,34 +204,11 @@ el.addEventListener('keyup', (event) => {
             adjustPassword(el)
         }
     }
-    else if(event.key.toUpperCase() == 'CONTROL'
-    || event.key.toUpperCase() == 'ALT'
-    || event.key.toUpperCase() == 'SHIFT'
-    || event.key.toUpperCase() == 'TAB'){
+    else if (!event.code) {
 
-        adjustPasswordHints(event)
-
-        // Virtual KB
-        if(!event.code){
-            if(event.target.innerText.length > password.length){
-                //event.target.innerText = event.target.innerText.replace(new RegExp(heartChar, "g"), "")
-                password += event.target.innerText.charAt(event.target.innerText.length - 1)
-                //event.target.innerText = ''
-
-                passLength++
-            }
-            else if(event.target.innerText.length < password.length){
-                passLength--
-                password = password.slice(0, password.length - 1)
-            }
-
-            adjustPassword(el)
-            event.stopPropagation();
-            event.preventDefault()
-        }
-
-        else
-            adjustPassword(el)
+        var t1 = setTimeout((event) => {
+            adjustPassword2()
+        }, 100)
     }
     else if(
         !event.ctrlKey
