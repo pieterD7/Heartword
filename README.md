@@ -1,4 +1,5 @@
 # Heartword
-HTML input field displaying UTF-8 character
+HTML input field displaying UTF-8 character for physical keyboards and Android virtual keyboard.
 
-A heartword is not a password.
+<img src='example.png' align='left'/>
+
