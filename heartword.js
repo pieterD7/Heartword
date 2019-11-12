@@ -49,7 +49,13 @@ function adjustPassword(el){
 
     var range = document.createRange();
     var sel = window.getSelection();
-    range.setStart(el, 1);
+    var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    
+    if(isSafari)
+        range.setStart(el, passLength);
+    else
+        range.setStart(el, 1)   
+        
     range.collapse(true);
     sel.removeAllRanges();
     sel.addRange(range);
